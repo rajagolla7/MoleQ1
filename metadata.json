@@ -1,0 +1,6 @@
+{
+  "name": "MoleQ",
+  "description": "Advanced AI & Quantum-ready platform for disease-to-target de novo molecular design, ADMET prediction, and multi-objective lead ranking with dark & bright theme support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

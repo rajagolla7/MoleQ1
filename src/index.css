@@ -1,0 +1,323 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.dark body {
+    background-color: #030712;
+    color: #f8fafc;
+  }
+
+  html.bright body {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  /* Custom scientific scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  html.dark ::-webkit-scrollbar-track {
+    background: rgba(3, 7, 18, 0.8);
+  }
+  html.dark ::-webkit-scrollbar-thumb {
+    background: rgba(14, 165, 233, 0.25);
+    border-radius: 9999px;
+  }
+  html.dark ::-webkit-scrollbar-thumb:hover {
+    background: rgba(20, 184, 166, 0.5);
+  }
+
+  html.bright ::-webkit-scrollbar-track {
+    background: rgba(241, 245, 249, 0.9);
+  }
+  html.bright ::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.5);
+    border-radius: 9999px;
+  }
+  html.bright ::-webkit-scrollbar-thumb:hover {
+    background: rgba(13, 148, 136, 0.7);
+  }
+}
+
+.font-display {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Glassmorphism Panels for Dark Mode */
+html.dark .glass-panel {
+  background: rgba(11, 19, 38, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.14);
+}
+
+html.dark .glass-panel-subtle {
+  background: rgba(8, 15, 30, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+html.dark .glass-panel-glow {
+  background: rgba(11, 23, 48, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(45, 212, 191, 0.3);
+  box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.2);
+}
+
+html.dark .quantum-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+}
+
+html.dark .quantum-radial-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(20, 184, 166, 0.14) 0%, rgba(14, 165, 233, 0.07) 40%, transparent 70%);
+}
+
+/* ==========================================================================
+   Bright Mode Styles (Clean, High-Contrast Scientific Laboratory Theme)
+   ========================================================================== */
+html.bright {
+  color-scheme: light;
+}
+
+html.bright body {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+/* Headings & Display Titles in Bright Mode: Deep high-contrast Slate 900 */
+html.bright h1,
+html.bright h2,
+html.bright h3,
+html.bright h4,
+html.bright h5,
+html.bright h6,
+html.bright .font-display,
+html.bright .text-white,
+html.bright [class*="text-white"] {
+  color: #0f172a !important;
+}
+
+/* Exception: allow gradient text to remain vibrant */
+html.bright .bg-clip-text {
+  color: transparent !important;
+}
+
+/* High-contrast body, subheadings, and secondary text */
+html.bright .text-slate-100,
+html.bright .text-slate-200 {
+  color: #1e293b !important; /* Slate 800 */
+}
+
+html.bright .text-slate-300 {
+  color: #334155 !important; /* Slate 700 */
+}
+
+html.bright .text-slate-400 {
+  color: #475569 !important; /* Slate 600 - High contrast WCAG AA compliant */
+}
+
+html.bright .text-slate-500 {
+  color: #64748b !important; /* Slate 500 */
+}
+
+/* Accent Colors for Bright Mode: Deep vibrant shades */
+html.bright .text-teal-300,
+html.bright .text-teal-400 {
+  color: #0f766e !important; /* Teal 700 */
+}
+
+html.bright .text-sky-300,
+html.bright .text-sky-400 {
+  color: #0369a1 !important; /* Sky 700 */
+}
+
+html.bright .text-emerald-300,
+html.bright .text-emerald-400 {
+  color: #047857 !important; /* Emerald 700 */
+}
+
+html.bright .text-amber-300,
+html.bright .text-amber-400 {
+  color: #b45309 !important; /* Amber 700 */
+}
+
+html.bright .text-violet-300,
+html.bright .text-violet-400 {
+  color: #6d28d9 !important; /* Violet 700 */
+}
+
+html.bright .text-rose-300,
+html.bright .text-rose-400 {
+  color: #be123c !important; /* Rose 700 */
+}
+
+/* Bright Mode Glass & Card Panels */
+html.bright .glass-panel {
+  background: #ffffff !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #cbd5e1 !important;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 1px 3px 0 rgba(0, 0, 0, 0.03);
+}
+
+html.bright .glass-panel-subtle {
+  background: #f8fafc !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+html.bright .glass-panel-glow {
+  background: #ffffff !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(20, 184, 166, 0.5) !important;
+  box-shadow: 0 8px 24px -4px rgba(20, 184, 166, 0.16);
+}
+
+html.bright .quantum-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
+html.bright .quantum-radial-glow {
+  background: radial-gradient(circle at 50% 30%, rgba(20, 184, 166, 0.08) 0%, rgba(14, 165, 233, 0.04) 40%, transparent 70%);
+}
+
+/* Container Backgrounds in Bright Mode */
+html.bright .bg-slate-950,
+html.bright .bg-slate-900,
+html.bright .bg-slate-950\/90,
+html.bright .bg-slate-950\/80,
+html.bright .bg-slate-950\/70,
+html.bright .bg-slate-900\/90,
+html.bright .bg-slate-900\/80,
+html.bright .bg-slate-900\/70,
+html.bright .bg-slate-900\/60 {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+html.bright .bg-slate-800,
+html.bright .bg-slate-800\/80,
+html.bright .bg-slate-800\/60 {
+  background-color: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+html.bright .hover\:bg-slate-900:hover,
+html.bright .hover\:bg-slate-800:hover,
+html.bright .hover\:bg-slate-700:hover {
+  background-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* Borders in Bright Mode */
+html.bright .border-slate-900,
+html.bright .border-slate-800,
+html.bright .border-slate-800\/80,
+html.bright .border-slate-800\/60,
+html.bright .border-slate-700,
+html.bright .border-slate-700\/80 {
+  border-color: #cbd5e1 !important;
+}
+
+/* Form Controls & Inputs in Bright Mode */
+html.bright input:not([type="range"]):not([type="checkbox"]):not([type="radio"]),
+html.bright select,
+html.bright textarea {
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #0f172a !important;
+}
+
+html.bright input::placeholder,
+html.bright textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.bright select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+/* Buttons in Bright Mode */
+html.bright button.bg-slate-900,
+html.bright button.bg-slate-800 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+  color: #0f172a !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+html.bright button.bg-slate-900:hover,
+html.bright button.bg-slate-800:hover {
+  background-color: #f8fafc !important;
+  border-color: #94a3b8 !important;
+  color: #0f172a !important;
+}
+
+/* Table header & body styling in Bright Mode */
+html.bright table thead tr {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border-bottom: 2px solid #cbd5e1 !important;
+}
+
+html.bright table tbody tr {
+  border-bottom: 1px solid #e2e8f0 !important;
+}
+
+html.bright table tbody tr:hover {
+  background-color: #f8fafc !important;
+}
+
+/* 2D Molecule Viewport Background in Bright Mode */
+html.bright div[id^="molecule-2d-canvas-"],
+html.bright .h-36.w-full.bg-slate-950,
+html.bright .h-48.w-full.bg-slate-950,
+html.bright .h-64.w-full.bg-slate-950,
+html.bright .h-72.w-full.bg-slate-950,
+html.bright .h-80.w-full.bg-slate-950 {
+  background-color: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.bright svg circle[fill="#090d16"],
+html.bright svg circle[fill="#020617"],
+html.bright svg circle[fill="#030712"] {
+  fill: #ffffff !important;
+  stroke: #94a3b8 !important;
+  stroke-width: 1px;
+}
+
+/* Fallback base class defaults */
+.glass-panel {
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
